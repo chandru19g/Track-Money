@@ -22,7 +22,7 @@ class GradientText extends StatelessWidget {
       child: Text(
         text,
         style: isGradientApplied == false
-            ? style ?? const TextStyle()
+            ? style ?? TextStyle(color: Styles.blackColor)
             : (style ?? const TextStyle()).copyWith(color: Colors.white),
       ),
     );
