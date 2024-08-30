@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:trackmoney/widgets/sizedbox_widgets.dart';
 import 'package:trackmoney/widgets/text_widget.dart';
 
 class TransactionWidget extends StatelessWidget {
@@ -17,9 +18,7 @@ class TransactionWidget extends StatelessWidget {
         TextWidget(
           title,
         ),
-        const SizedBox(
-          height: 4.0,
-        ),
+        const SmallHeightSizedBox(),
         TextWidget(
           amount,
           weight: FontWeight.w800,

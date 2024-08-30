@@ -62,7 +62,7 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: Container(
-          margin: const EdgeInsets.all(14.0),
+          margin: const EdgeInsets.only(bottom: 14.0, left: 14.0, right: 14.0),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(100.0),
             child: BottomNavigationBar(
