@@ -31,7 +31,7 @@ class TextWidget extends StatelessWidget {
       maxLines: maxLines,
       overflow: overflow,
       style: TextStyle(
-        color: Styles.whiteColor,
+        color: color ?? Styles.whiteColor,
         fontWeight: weight ?? FontWeight.w400,
         fontSize: size ?? 14.0,
       ),
