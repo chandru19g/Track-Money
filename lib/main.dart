@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:trackmoney/helpers/styles.dart';
-import 'package:trackmoney/screens/my_navigation_bar.dart';
+import 'package:trackmoney/screens/splash_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyNavigationBar(),
+      home: const SplashScreen(),
     );
   }
 }

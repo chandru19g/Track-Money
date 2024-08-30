@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trackmoney/helpers/constants.dart';
 import 'package:trackmoney/helpers/styles.dart';
 import 'package:trackmoney/screens/homeScreen/widgets/transaction_widget.dart';
+import 'package:trackmoney/widgets/gradient_text.dart';
 import 'package:trackmoney/widgets/svg_picture.dart';
 import 'package:trackmoney/widgets/text_widget.dart';
 
@@ -21,18 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           // title: const Text("Track Money"),
           backgroundColor: Styles.bgGreyColor,
-          title: ShaderMask(
-            shaderCallback: (bounds) => LinearGradient(
-              colors: Styles.primaryGradient,
-              begin: Alignment.bottomRight,
-              end: Alignment.topLeft,
-            ).createShader(
-              Rect.fromLTWH(0.0, 0.0, bounds.width, bounds.height),
-            ),
-            child: Text(
-              "Track Money",
-              // style: (const TextStyle()).copyWith(color: Colors.white),
-            ),
+          title: const GradientText(
+            text: "Welcome!!👋",
+            isGradientApplied: false,
+            // style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600),
           ),
           actions: [
             InkWell(
