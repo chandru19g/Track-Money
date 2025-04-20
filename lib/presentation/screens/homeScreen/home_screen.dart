@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:trackmoney/helpers/constants.dart';
-import 'package:trackmoney/helpers/styles.dart';
-import 'package:trackmoney/screens/homeScreen/widgets/transaction_widget.dart';
-import 'package:trackmoney/widgets/expense_card_widget.dart';
-import 'package:trackmoney/widgets/gradient_text.dart';
-import 'package:trackmoney/widgets/sizedbox_widgets.dart';
-import 'package:trackmoney/widgets/svg_picture.dart';
-import 'package:trackmoney/widgets/text_widget.dart';
+import 'package:trackmoney/core/constants/constants.dart';
+import 'package:trackmoney/core/styles/styles.dart';
+import 'package:trackmoney/presentation/screens/homeScreen/widgets/transaction_widget.dart';
+import 'package:trackmoney/presentation/widgets/expense_card_widget.dart';
+import 'package:trackmoney/presentation/widgets/gradient_text.dart';
+import 'package:trackmoney/presentation/widgets/sizedbox_widgets.dart';
+import 'package:trackmoney/presentation/widgets/svg_picture.dart';
+import 'package:trackmoney/presentation/widgets/text_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -185,7 +185,7 @@ class BalanceContainer extends StatelessWidget {
           ),
           PrimaryHeightSizeddBox(),
           TextWidget(
-            "$rupeeSymbol 1400.00",
+            "${AppConstants.rupeeSymbol} 1400.00",
             align: TextAlign.center,
             size: 24.0,
             weight: FontWeight.bold,

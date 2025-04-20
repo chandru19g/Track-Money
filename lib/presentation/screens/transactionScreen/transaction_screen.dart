@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trackmoney/helpers/styles.dart';
+import 'package:trackmoney/core/styles/styles.dart';
 
 class TransactionScreen extends StatefulWidget {
   const TransactionScreen({super.key});

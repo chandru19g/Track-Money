@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:trackmoney/helpers/screen_navigation.dart';
-import 'package:trackmoney/helpers/styles.dart';
-import 'package:trackmoney/screens/my_navigation_bar.dart';
-import 'package:trackmoney/widgets/gradient_text.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trackmoney/core/constants/route_names.dart';
+import 'package:trackmoney/core/styles/styles.dart';
+import 'package:trackmoney/presentation/widgets/gradient_text.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,7 +17,9 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        changeScreenReplacement(context, const MyNavigationBar());
+        if (mounted) {
+          context.goNamed(RouteNames.home);
+        }
       },
     );
     super.initState();
