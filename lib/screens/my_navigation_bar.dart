@@ -85,6 +85,7 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
               currentIndex: _selectedIndex,
               showSelectedLabels: false,
               showUnselectedLabels: false,
+              elevation: 0.0,
               onTap: _onItemTapped,
             ),
           ),
