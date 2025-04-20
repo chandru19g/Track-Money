@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:trackmoney/helpers/styles.dart';
-import 'package:trackmoney/screens/splash_screen.dart';
+import 'package:trackmoney/core/styles/styles.dart';
+import 'package:trackmoney/presentation/routes/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Track Money',
       color: Styles.bgGreyColor,
       theme: ThemeData(
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      routerConfig: appRouter,
     );
   }
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:trackmoney/helpers/styles.dart';
-import 'package:trackmoney/screens/homeScreen/home_screen.dart';
-import 'package:trackmoney/screens/transaction_screen.dart';
-import 'package:trackmoney/widgets/svg_picture.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trackmoney/core/constants/route_names.dart';
+import 'package:trackmoney/core/styles/styles.dart';
+import 'package:trackmoney/presentation/screens/homeScreen/home_screen.dart';
+import 'package:trackmoney/presentation/screens/transactionScreen/transaction_screen.dart';
+import 'package:trackmoney/presentation/widgets/svg_picture.dart';
 
 class MyNavigationBar extends StatefulWidget {
   const MyNavigationBar({super.key});
@@ -46,7 +48,9 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
             shape: BoxShape.circle,
           ),
           child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(RouteNames.addExpense);
+            },
             backgroundColor: Colors.transparent,
             splashColor: Colors.transparent,
             highlightElevation: 0.0,
