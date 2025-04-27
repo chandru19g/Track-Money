@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:trackmoney/presentation/screens/addExpenseScreen/add_expense_screen.dart';
 import 'package:trackmoney/presentation/screens/my_navigation_bar.dart';
 import 'package:trackmoney/presentation/screens/splash_screen.dart';
 import 'package:trackmoney/presentation/screens/transactionScreen/transaction_screen.dart';
@@ -26,7 +27,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       name: RouteNames.addExpense,
       path: '/add-expense',
-      builder: (context, state) => const TransactionScreen(),
+      builder: (context, state) => const AddExpenseScreen(),
     ),
   ],
   errorBuilder: (context, state) =>
