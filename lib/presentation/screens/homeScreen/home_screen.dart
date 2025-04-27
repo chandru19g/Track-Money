@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:trackmoney/core/constants/constants.dart';
 import 'package:trackmoney/core/styles/styles.dart';
-import 'package:trackmoney/presentation/screens/homeScreen/widgets/transaction_widget.dart';
+import 'package:trackmoney/presentation/screens/homeScreen/widgets/balance_container_widget.dart';
 import 'package:trackmoney/presentation/widgets/expense_card_widget.dart';
-import 'package:trackmoney/presentation/widgets/gradient_text.dart';
+import 'package:trackmoney/presentation/widgets/primary_app_bar_widget.dart';
 import 'package:trackmoney/presentation/widgets/sizedbox_widgets.dart';
-import 'package:trackmoney/presentation/widgets/svg_picture.dart';
-import 'package:trackmoney/presentation/widgets/text_widget.dart';
+import 'package:trackmoney/presentation/widgets/text_widgets/text_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -80,132 +78,62 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Styles.bgGreyColor,
-        appBar: AppBar(
-          surfaceTintColor: Colors.transparent,
-          // title: const Text("Track Money"),
-          backgroundColor: Styles.bgGreyColor,
-          title: const GradientText(
-            text: "Welcome!!",
-            isGradientApplied: false,
-            style: TextStyle(fontWeight: FontWeight.w600),
-          ),
-          actions: [
-            InkWell(
-              onTap: () {},
-              child: Container(
-                height: 32.0,
-                width: 32.0,
-                decoration: BoxDecoration(
-                  color: Styles.whiteColor,
-                  borderRadius: BorderRadius.circular(50.0),
-                ),
-                padding: const EdgeInsets.all(6.0),
-                child: const SvgPictureAsset(src: 'assets/icons/settings.svg'),
-              ),
-            ),
-            const PrimaryWidthSizeddBox(),
-          ],
+        appBar: const PrimaryAppbarWidget(
+          title: "Welcome!!",
+          isGradientTitle: false,
+          iconUrl: 'assets/icons/settings.svg',
         ),
-        body: ListView(
+        body: Padding(
           padding: const EdgeInsets.all(16.0),
-          children: [
-            const BalanceContainer(),
-            const LargeHeightSizedBox(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                TextWidget(
-                  "Transactions",
-                  color: Styles.blackColor,
-                  size: 18.0,
-                  weight: FontWeight.w600,
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: TextWidget(
-                    "View all",
-                    color: Styles.iconGreyColor,
-                  ),
-                ),
-              ],
-            ),
-            const LargeHeightSizedBox(),
-            ListView.separated(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: transactions.length,
-              itemBuilder: (context, index) {
-                // log(transactions[index]['color']);
-                return ExpenseCardWidget(
-                  color: transactions[index]['color'],
-                  // color: Colors.red,
-                  date: transactions[index]['date'],
-                  price: transactions[index]['price'],
-                  title: transactions[index]['name'],
-                );
-              },
-              separatorBuilder: (context, index) {
-                return const PrimaryHeightSizeddBox();
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class BalanceContainer extends StatelessWidget {
-  const BalanceContainer({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: Styles.primaryGradient,
-          begin: Alignment.bottomRight,
-          end: Alignment.topLeft,
-        ),
-        borderRadius: BorderRadius.circular(14.0),
-      ),
-      child: const Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          TextWidget(
-            "Total Balance",
-            align: TextAlign.center,
-            size: 16.0,
-            weight: FontWeight.w500,
-          ),
-          PrimaryHeightSizeddBox(),
-          TextWidget(
-            "${AppConstants.rupeeSymbol} 1400.00",
-            align: TextAlign.center,
-            size: 24.0,
-            weight: FontWeight.bold,
-          ),
-          PrimaryHeightSizeddBox(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: Column(
+            // padding: const EdgeInsets.all(16.0),
             children: [
-              TransactionWidget(
-                title: "Income",
-                amount: "2500.00",
+              const BalanceContainer(),
+              const LargeHeightSizedBox(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TextWidget(
+                    "Transactions",
+                    color: Styles.blackColor,
+                    size: 18.0,
+                    weight: FontWeight.w600,
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: TextWidget(
+                      "View all",
+                      color: Styles.iconGreyColor,
+                    ),
+                  ),
+                ],
               ),
-              TransactionWidget(
-                title: "Expenses",
-                amount: "500.00",
+              const MediumHeightSizedBox(),
+              Expanded(
+                child: ListView.separated(
+                  padding: const EdgeInsets.only(top: 16.0),
+                  // physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: transactions.length,
+                  itemBuilder: (context, index) {
+                    // log(transactions[index]['color']);
+                    return ExpenseCardWidget(
+                      color: transactions[index]['color'],
+                      // color: Colors.red,
+                      date: transactions[index]['date'],
+                      price: transactions[index]['price'],
+                      title: transactions[index]['name'],
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const PrimaryHeightSizeddBox();
+                  },
+                ),
               ),
             ],
-          )
-        ],
+          ),
+        ),
       ),
     );
   }

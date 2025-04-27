@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trackmoney/core/constants/constants.dart';
 import 'package:trackmoney/core/styles/styles.dart';
 import 'package:trackmoney/presentation/widgets/sizedbox_widgets.dart';
-import 'package:trackmoney/presentation/widgets/text_widget.dart';
+import 'package:trackmoney/presentation/widgets/text_widgets/text_widget.dart';
 
 class ExpenseCardWidget extends StatelessWidget {
   final Color color;

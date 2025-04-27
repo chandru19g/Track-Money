@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:trackmoney/presentation/widgets/sizedbox_widgets.dart';
-import 'package:trackmoney/presentation/widgets/text_widget.dart';
+import 'package:trackmoney/presentation/widgets/text_widgets/text_widget.dart';
 
 class TransactionWidget extends StatelessWidget {
   final String title;
